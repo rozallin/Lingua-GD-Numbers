@@ -2,6 +2,7 @@ package Lingua::GD::Numbers;
 
 use strict;
 use warnings;
+use utf8;
 
 %NUMBER_NAMES             = (
     1    => 'aon',
@@ -36,3 +37,16 @@ use warnings;
     1e6  => 'millean',
     1e12 => 'billean', 
 );
+
+# Test if $number is really a number, or return undef, from perldoc
+    # -q numbers
+    $number =~ s/_//g; # Allow for '_' separating figures
+    if ( $number !~ /^([+-]?)(?=\d|\.\d)\d*(\.\d*)?([Ee]([+-]?\d+))?$/ ) {
+        carp("Invalid number format: '$number'");
+        return;
+    }
+ 
+    if ( $number > ( 1e75 - 1 ) ) {
+        carp("Number '$number' too big to be represented as string");
+        return;
+    }
