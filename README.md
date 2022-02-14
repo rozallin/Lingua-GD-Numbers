@@ -1,5 +1,5 @@
 # Lingua::GD::Numbers
-Perl module for converting numeric values into their Gàidhlig (Scottish Gaelic) equivalents
+Perl module for converting numeric values into their traditional Gàidhlig (Scottish Gaelic) equivalents
 
 REPOSITORY
 https://github.com/rozallin/Lingua-GD-Numbers
